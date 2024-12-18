@@ -1,0 +1,22 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudFormation template for EventBridge RuleAwsMessagingExample",
+  "Resources": {
+    "Rule8758a0c5": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Name": "AwsMessagingExample",
+        "EventPattern": "{\"detail-type\":[\"Payload\"]}",
+        "State": "ENABLED",
+        "EventBusName": "default",
+        "Targets": [{
+          "Id": "Idfcbd425a-f923-4e2d-a6ea-e4a03a335cb8",
+          "Arn": {
+            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/events/AwsMessagingTest"
+          }
+        }]
+      }
+    }
+  },
+  "Parameters": {}
+}
